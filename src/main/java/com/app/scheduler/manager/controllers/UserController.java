@@ -17,22 +17,21 @@ public class UserController {
 
 
     @Autowired
-    private UserServiceAdvisor service;
+    private UserServiceAdvisor advisor;
 
 
     @GetMapping("/all")
     public ResponseEntity getAllUsers(){
-
-        return service.retrieveAllUsers();
+        return advisor.retrieveAllUsers();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity getUserBy(@PathVariable("id") String id){
-        return service.retrieveUserBy(id);
+        return advisor.retrieveUserBy(id);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity removeUserBy(@PathVariable("id") String id){
-        return service.deleteUserBy(id);
+        return advisor.deleteUserBy(id);
     }
 }
