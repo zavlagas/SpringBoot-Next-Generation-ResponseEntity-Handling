@@ -19,21 +19,18 @@ public class UserServiceAdvisorImpl implements UserServiceAdvisor {
     @Override
     public ResponseEntity retrieveAllUsers() {
         Optional<List<User>> users = service.retrieveAllUsers();
-        if (users.isPresent()){
-            return ResponseEntity.ok(users.get());
-        }else{
-            return ResponseEntity.notFound().build();
-        }
+        return users.isPresent() ?
+               ResponseEntity.ok().body(users.get())
+                : ResponseEntity.notFound().build();
+
     }
 
     @Override
     public ResponseEntity retrieveUserBy(String id) {
         Optional<User> user = service.retrieveUserBy(id);
-        if(user.isPresent()){
-            return ResponseEntity.ok(user.get());
-        }else{
-         return  ResponseEntity.notFound().build();
-        }
+        return user.isPresent() ?
+                ResponseEntity.ok().body(user.get())
+                : ResponseEntity.notFound().build();
     }
 
     @Override

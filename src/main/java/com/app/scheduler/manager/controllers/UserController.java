@@ -15,10 +15,8 @@ import java.util.List;
 @RequestMapping(value = "/api/users")
 public class UserController {
 
-
     @Autowired
     private UserServiceAdvisor advisor;
-
 
     @GetMapping("/all")
     public ResponseEntity getAllUsers(){
