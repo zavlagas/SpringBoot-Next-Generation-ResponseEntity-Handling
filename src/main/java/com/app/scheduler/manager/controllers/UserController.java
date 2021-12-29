@@ -2,8 +2,7 @@ package com.app.scheduler.manager.controllers;
 
 
 import com.app.scheduler.manager.advisors.UserServiceAdvisor;
-import com.app.scheduler.manager.entities.User;
-import com.app.scheduler.manager.services.UserService;
+import com.app.scheduler.manager.exceptions.MyExceptionHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/api/users")
-public class UserController {
+public class UserController extends MyExceptionHandler {
 
     @Autowired
     private UserServiceAdvisor advisor;
